@@ -1,2 +1,3 @@
-# aprendago-2
-Refatoração do projeto aprendago usando a lib Cobra
+# aprendago2
+
+Refatoração do projeto aprendago2 usando a lib Cobra
