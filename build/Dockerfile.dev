@@ -1,10 +1,12 @@
-FROM golang:alpine3.23 AS builder
+FROM golang:alpine3.22 AS build
 
-WORKDIR /aprendago
+WORKDIR /aprendago2
 
 COPY . .
 
-RUN apk update && apk upgrade && go mod download
+RUN go mod download \
+  && go install github.com/air-verse/air@latest
 
-ENTRYPOINT [ "/bin/sh" ]
-CMD [ "-c", "while true; do echo 'Im running...' && sleep 300; done" ]
+ENTRYPOINT ["/go/bin/air"]
+
+CMD ["-c", "/aprendago2/configs/air.toml"]
